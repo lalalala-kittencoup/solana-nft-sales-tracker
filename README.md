@@ -1,212 +1,33 @@
-Contribution: 2020-03-16 20:00
+# Solana NFT Sales Tracker
+This repository contains code that can be used to run your own marketplace sales tracker for Solana NFTs. It relies on the concept of royalties being automatically credited to the creators and uses those transactions to identify sales. This ensures that the code is marketplace agnostic i.e as long as royalties are properly credited to the creator of the NFT, the transaction can be identified and parsed for necessary values.
 
-Contribution: 2020-03-16 20:01
+The codebase comes with a cron.js file which can be used to execute the tracking process at routine intervals - it uses a simple auditfile-*.json to track already processed transactions. (Can be replaced with a DB if you want to go that route)
 
-Contribution: 2020-03-17 20:00
+Code developed and open sourced by the @FlutterNFT team. Follow us on Twitter @ https://twitter.com/FlutterNft to show support.
 
-Contribution: 2020-03-17 20:01
+# Notes
+The code is a mishmash of TypeScript and vanilla Javascript. Please excuse the mess. The Metaplex helper classes were taken from https://github.com/solana-labs/solana/tree/1428575be3bb71dc015184b63261609890dd695d/explorer/src/metaplex. (Thanks to the contributor)
 
-Contribution: 2020-03-17 20:02
 
-Contribution: 2020-03-17 20:03
+# Requirements
+NodeJS v14.x or higher and Typescript.
 
-Contribution: 2020-03-17 20:04
+## Setup
 
-Contribution: 2020-03-17 20:05
+Take a look at the ./config/sample.json file for the values used by the script. It's configured to track Flutter sales right now, but it's just a matter of changing the primaryRoyaltiesAccount, updateAuthority and candyMachineId to get it running for your own NFT collection.
 
-Contribution: 2020-03-18 20:00
+Run the following commands to clone and install dependencies:
 
-Contribution: 2020-03-18 20:01
+    $ git clone git@github.com:flutternft/solana-nft-sales-tracker.git
+    $ cd solana-nft-sales-tracker
+    $ npm install
+    $ npm run build #Might spit out some errors, but it's inconsequential.
+    $ npm run console_run (Essentially runs: node run-script-standalone.js --config='./config/sample.json' --outputType=console)
 
-Contribution: 2020-03-18 20:02
+There are various output plugins available:
+- console: Prints the output to the console. Will work out of the box.
+- discord: Posts the output to a discord webhook. You need to create a webhook integration in Discord and supply the value in the config file.
+- twitter: Posts the output to a twitter account (requires you to setup your own Twitter Developer account, setup a account on which you want to post the status updates, get the oauth token through the 3 legged oAuth process. Once you have the key/oAuth creds set it up in a config file under config/ and pass it when starting the script).
 
-Contribution: 2020-03-18 20:03
-
-Contribution: 2020-03-18 20:04
-
-Contribution: 2020-03-18 20:05
-
-Contribution: 2020-03-18 20:06
-
-Contribution: 2020-03-18 20:07
-
-Contribution: 2020-03-18 20:08
-
-Contribution: 2020-03-18 20:09
-
-Contribution: 2020-03-18 20:10
-
-Contribution: 2020-03-19 20:00
-
-Contribution: 2020-03-19 20:01
-
-Contribution: 2020-03-19 20:02
-
-Contribution: 2020-03-19 20:03
-
-Contribution: 2020-03-19 20:04
-
-Contribution: 2020-03-21 20:00
-
-Contribution: 2020-03-21 20:01
-
-Contribution: 2020-03-21 20:02
-
-Contribution: 2020-03-21 20:03
-
-Contribution: 2020-03-22 20:00
-
-Contribution: 2020-03-22 20:01
-
-Contribution: 2020-03-22 20:02
-
-Contribution: 2020-03-22 20:03
-
-Contribution: 2020-03-22 20:04
-
-Contribution: 2020-03-23 20:00
-
-Contribution: 2020-03-23 20:01
-
-Contribution: 2020-03-23 20:02
-
-Contribution: 2020-03-23 20:03
-
-Contribution: 2020-03-23 20:04
-
-Contribution: 2020-03-23 20:05
-
-Contribution: 2020-03-26 20:00
-
-Contribution: 2020-03-26 20:01
-
-Contribution: 2020-03-26 20:02
-
-Contribution: 2020-03-26 20:03
-
-Contribution: 2020-03-26 20:04
-
-Contribution: 2020-03-26 20:05
-
-Contribution: 2020-03-26 20:06
-
-Contribution: 2020-03-26 20:07
-
-Contribution: 2020-03-26 20:08
-
-Contribution: 2020-03-26 20:09
-
-Contribution: 2020-03-28 20:00
-
-Contribution: 2020-03-28 20:01
-
-Contribution: 2020-03-28 20:02
-
-Contribution: 2020-03-28 20:03
-
-Contribution: 2020-03-28 20:04
-
-Contribution: 2020-03-28 20:05
-
-Contribution: 2020-03-28 20:06
-
-Contribution: 2020-03-28 20:07
-
-Contribution: 2020-03-29 20:00
-
-Contribution: 2020-03-29 20:01
-
-Contribution: 2020-03-29 20:02
-
-Contribution: 2020-03-29 20:03
-
-Contribution: 2020-03-29 20:04
-
-Contribution: 2020-03-29 20:05
-
-Contribution: 2020-03-29 20:06
-
-Contribution: 2020-03-29 20:07
-
-Contribution: 2020-03-29 20:08
-
-Contribution: 2020-03-29 20:09
-
-Contribution: 2020-03-29 20:10
-
-Contribution: 2020-03-29 20:11
-
-Contribution: 2020-03-31 20:00
-
-Contribution: 2020-03-31 20:01
-
-Contribution: 2020-03-31 20:02
-
-Contribution: 2020-04-03 20:00
-
-Contribution: 2020-04-03 20:01
-
-Contribution: 2020-04-03 20:02
-
-Contribution: 2020-04-04 20:00
-
-Contribution: 2020-04-04 20:01
-
-Contribution: 2020-04-04 20:02
-
-Contribution: 2020-04-04 20:03
-
-Contribution: 2020-04-04 20:04
-
-Contribution: 2020-04-04 20:05
-
-Contribution: 2020-04-04 20:06
-
-Contribution: 2020-04-04 20:07
-
-Contribution: 2020-04-05 20:00
-
-Contribution: 2020-04-05 20:01
-
-Contribution: 2020-04-05 20:02
-
-Contribution: 2020-04-07 20:00
-
-Contribution: 2020-04-07 20:01
-
-Contribution: 2020-04-07 20:02
-
-Contribution: 2020-04-07 20:03
-
-Contribution: 2020-04-07 20:04
-
-Contribution: 2020-04-07 20:05
-
-Contribution: 2020-04-07 20:06
-
-Contribution: 2020-04-07 20:07
-
-Contribution: 2020-04-07 20:08
-
-Contribution: 2020-04-07 20:09
-
-Contribution: 2020-04-09 20:00
-
-Contribution: 2020-04-09 20:01
-
-Contribution: 2020-04-09 20:02
-
-Contribution: 2020-04-09 20:03
-
-Contribution: 2020-04-09 20:04
-
-Contribution: 2020-04-09 20:05
-
-Contribution: 2020-04-09 20:06
-
-Contribution: 2020-04-09 20:07
-
-Contribution: 2020-04-09 20:08
-
-Contribution: 2020-04-09 20:09
-
+## Disclaimer
+Code provided as is with no support/guarantee. 

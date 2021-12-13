@@ -1,9 +1,7 @@
-# Solana NFT Sales Tracker
+# Solana NFT Sales Tracker by cryptoSyndrome
 This repository contains code that can be used to run your own marketplace sales tracker for Solana NFTs. It relies on the concept of royalties being automatically credited to the creators and uses those transactions to identify sales. This ensures that the code is marketplace agnostic i.e as long as royalties are properly credited to the creator of the NFT, the transaction can be identified and parsed for necessary values.
 
 The codebase comes with a cron.js file which can be used to execute the tracking process at routine intervals - it uses a simple auditfile-*.json to track already processed transactions. (Can be replaced with a DB if you want to go that route)
-
-Code developed and open sourced by the @FlutterNFT team. Follow us on Twitter @ https://twitter.com/FlutterNft to show support.
 
 # Notes
 The code is a mishmash of TypeScript and vanilla Javascript. Please excuse the mess. The Metaplex helper classes were taken from https://github.com/solana-labs/solana/tree/1428575be3bb71dc015184b63261609890dd695d/explorer/src/metaplex. (Thanks to the contributor)
